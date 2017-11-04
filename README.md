@@ -1,5 +1,6 @@
 <img width="570" alt="sample" src="https://user-images.githubusercontent.com/25258642/32407337-c30c7f26-c15d-11e7-9e80-981c27940daa.png">
-> JS challenge -> Show latest tweets for Hillary Clinton and Donald Trump
+
+> Show latest tweets for Hillary Clinton and Donald Trump (ALDO JS challenge)
 
 ## Getting Started:
 
