@@ -26,4 +26,7 @@ OS X -> ```brew install yarn```
 
 - BONUS (WEBPACK VISUALIZER -> ```http://localhost:8000/dist/stats.html```)
 
+<img width="917" alt="screen shot 2017-11-05 at 12 13 55 pm" src="https://user-images.githubusercontent.com/25258642/32417140-e24bf0fe-c222-11e7-912d-1e8ed4b05dcf.png">
+
+
 ~ Thanks.
