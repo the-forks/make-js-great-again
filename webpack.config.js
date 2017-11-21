@@ -9,7 +9,8 @@ const hmr = require('./webpack/plugins/hmr');
 const devServer = require('./webpack/devServer');
 const visualizer = require('./webpack/plugins/visualizer');
 
-const isProd = process.env.NODE_ENV.trim() === 'production';
+const isProd =
+  !!process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'production';
 
 const APP_DIR = path.resolve(__dirname, './app/client/src');
 const BUILD_DIR = path.resolve(__dirname, './dist');
