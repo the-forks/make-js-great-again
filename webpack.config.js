@@ -8,6 +8,7 @@ const mergeChunks = require('./webpack/plugins/mergeChunks');
 const hmr = require('./webpack/plugins/hmr');
 const devServer = require('./webpack/devServer');
 const visualizer = require('./webpack/plugins/visualizer');
+const compileTime = require('./webpack/plugins/compile-time');
 
 const isProd =
   !!process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'production';
@@ -88,5 +89,5 @@ module.exports = () => {
   if (isProd) {
     return merge([common, concat(), uglifyJS(), mergeChunks()]);
   }
-  return merge([common, devServer(), hmr(), visualizer()]);
+  return merge([common, devServer(), hmr(), visualizer(), compileTime()]);
 };
