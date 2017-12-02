@@ -9,6 +9,8 @@ const hmr = require('./webpack/plugins/hmr');
 const devServer = require('./webpack/devServer');
 const visualizer = require('./webpack/plugins/visualizer');
 const compileTime = require('./webpack/plugins/compile-time');
+const autoDllPlugin = require('./webpack/plugins/autodll');
+const vendors = require('./webpack/vendors');
 
 const isProd =
   !!process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'production';
@@ -16,24 +18,11 @@ const isProd =
 const APP_DIR = path.resolve(__dirname, './app/client/src');
 const BUILD_DIR = path.resolve(__dirname, './dist');
 
-const VENDOR_LIBS = [
-  'react',
-  'react-dom',
-  'prop-types',
-  'redux',
-  'react-redux',
-  'react-md',
-  'redux-observable',
-  'reselect',
-  'rxjs'
-];
-
 const common = merge([
   {
     devtool: isProd ? 'hidden-source-map' : 'eval-source-map',
     entry: {
-      main: `${APP_DIR}/app.js`,
-      vendor: VENDOR_LIBS
+      main: `${APP_DIR}/app.js`
     },
     output: {
       path: BUILD_DIR,
@@ -85,9 +74,30 @@ const common = merge([
   }
 ]);
 
+const useVendorSplitting = merge([
+  {
+    entry: {
+      vendor: vendors
+    }
+  }
+]);
+
 module.exports = () => {
   if (isProd) {
-    return merge([common, concat(), uglifyJS(), mergeChunks()]);
+    return merge([
+      common,
+      useVendorSplitting,
+      concat(),
+      uglifyJS(),
+      mergeChunks()
+    ]);
   }
-  return merge([common, devServer(), hmr(), visualizer(), compileTime()]);
+  return merge([
+    common,
+    devServer(),
+    hmr(),
+    visualizer(),
+    compileTime(),
+    autoDllPlugin()
+  ]);
 };
