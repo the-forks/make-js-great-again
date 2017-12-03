@@ -307,9 +307,9 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
-autodll-webpack-plugin@^0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/autodll-webpack-plugin/-/autodll-webpack-plugin-0.3.5.tgz#a6f778662920fe0359820ec4d12b06d843fcce0d"
+autodll-webpack-plugin@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/autodll-webpack-plugin/-/autodll-webpack-plugin-0.3.6.tgz#21c8a5f483c8445b35d6fd69df4a257840d8077e"
   dependencies:
     bluebird "^3.5.0"
     del "^3.0.0"
