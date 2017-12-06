@@ -10,6 +10,7 @@ const devServer = require('./webpack/devServer');
 const visualizer = require('./webpack/plugins/visualizer');
 const compileTime = require('./webpack/plugins/compile-time');
 const autoDllPlugin = require('./webpack/plugins/autodll');
+const commonChunkPlugin = require('./webpack/plugins/commons-chunk');
 const vendors = require('./webpack/vendors');
 
 const isProd =
@@ -20,7 +21,7 @@ const BUILD_DIR = path.resolve(__dirname, './dist');
 
 const common = merge([
   {
-    devtool: isProd ? 'hidden-source-map' : 'eval-source-map',
+    devtool: isProd ? 'source-map' : 'cheap-eval-source-map',
     entry: {
       main: `${APP_DIR}/app.js`
     },
@@ -64,9 +65,6 @@ const common = merge([
         template: './public/index.html',
         favicon: './public/favicon.ico'
       }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: ['vendor']
-      }),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
       })
@@ -87,6 +85,7 @@ module.exports = () => {
     return merge([
       common,
       useVendorSplitting,
+      commonChunkPlugin(),
       concat(),
       uglifyJS(),
       mergeChunks()
