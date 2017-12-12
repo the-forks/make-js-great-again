@@ -63,7 +63,7 @@
     "lint-staged": "^6.0.0",
     "morgan": "^1.9.0",
     "nodemon": "^1.12.5",
-    "prettier": "^1.9.1",
+    "prettier": "^1.9.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
     "rimraf": "^2.6.2",
