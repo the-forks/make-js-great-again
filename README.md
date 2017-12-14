@@ -2,6 +2,10 @@
 
 > Show latest tweets for Hillary Clinton and Donald Trump (ALDO JS challenge)
 
+<img width="1439" alt="redux-dev-tools" src="https://user-images.githubusercontent.com/25258642/33974593-45470926-e057-11e7-9bcc-14fd6c7680da.png">
+
+> Redux DevTools
+
 ## Getting Started:
 
 ### Install node 8.x LTS ```brew install node@8``` or ```brew install node``` to get the latest
