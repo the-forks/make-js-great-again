@@ -50,10 +50,6 @@ class TweetsContainer extends PureComponent {
 
   render() {
     const { currentUser, tweets, isLoading } = this.props;
-
-    if (isLoading) {
-      return <CircularProgress id="unique" scale={3} />;
-    }
     return (
       <Card style={{ maxWidth: 550 }} className="md-block-centered">
         <Media>
@@ -67,10 +63,14 @@ class TweetsContainer extends PureComponent {
           </MediaOverlay>
         </Media>
         <List>
-          {!!tweets &&
+          {isLoading ? (
+            <CircularProgress id="unique" scale={3} />
+          ) : (
+            !!tweets &&
             tweets.map(({ id, text }) => (
               <ListItem key={id} primaryText={text} title={text} />
-            ))}
+            ))
+          )}
         </List>
         <CardActions className="md-divider-border md-divider-border--top">
           <Button raised primary onClick={this.handleSwitchView}>
