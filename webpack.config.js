@@ -58,6 +58,8 @@ const common = merge([
     },
     plugins: [
       new HtmlWebpackPlugin({
+        chunks: ['vendor', 'main'],
+        chunksSortMode: 'manual',
         minify: {
           collapseWhitespace: true
         },
